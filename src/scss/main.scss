@@ -1,14 +1,14 @@
-/*  Helpers */
+//  Helpers
 
-@import './helpers/variables';
-@import './helpers/mixins';
-@import './helpers/reset';
-@import './helpers/utilities';
-@import './helpers/pages';
+@import 'helpers/variables';
+@import 'helpers/mixins';
+@import 'helpers/reset';
+@import 'helpers/utilities';
+@import 'helpers/pages';
 
-/*  Components */
+// Components
 
-@import './components/header';
-@import './components/menu';
-@import './components/social_media';
-@import './components/footer';
+@import 'components/header';
+@import 'components/menu';
+@import 'components/social_media';
+@import 'components/footer';

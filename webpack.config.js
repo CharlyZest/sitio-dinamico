@@ -16,7 +16,10 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ["@babel/preset-env"]
+          }
         }
       },
       {
@@ -33,14 +36,24 @@ module.exports = {
         ]
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.scss$/,
         use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          'css-loader?minimize&sourceMap',
-          'postcss-loader?sourceMap',
-          'resolve-url-loader',
-          'sass-loader?outputStyle=compressed&sourceMap'
+                {
+                    loader: 'style-loader'
+                },
+                {
+                    loader: 'css-loader'
+                },
+                {
+                    loader: 'sass-loader',
+                    options: {
+                        sourceMap: true
+                    }
+                },
+                {
+                    loader: 'resolve-url-loader'
+                },
+                //MiniCssExtractPlugin.loader
         ]
       },
       {
@@ -71,6 +84,7 @@ module.exports = {
         html5: true,
         collapseWhitespace: true,
         caseSensitive: true,
+        removeEmptyAttributes: true,
         removeComments: true
       }
     })

@@ -1,0 +1,26 @@
+<section class="Admin-auth">
+    <aside class="Admin-user">
+        <h2 class="Admin-name"></h2>
+        <img class="Admin-avatar">
+        <button id="logout" class="Sign-btn">
+            <i class="fas fa-sign-out-alt"></i>
+            salir
+        </button>
+    </aside>
+    <form id="form-save-photo" class="Form">
+        <h2>Sube una foto</h2>
+        <div class="Form-uploader">
+            <input type="file" name="photo" required>
+            <input type="text" placeholder="Sube una foto" disabled>
+            <span>
+                <i class="fas fa-camera fa-lg"></i>
+            </span>
+        </div>
+        <input type="text" name="title" placeholder="Título" required>
+        <progress value="0" max="100" id="progress-bar" class="u-none"></progress>
+        <span id="progress-advance" class="u-none"></span>
+        <input type="submit" value="Enviar">
+        <p class="u-message"></p>
+    </form>
+</section>
+<article id="photos" class="Photos"></article>

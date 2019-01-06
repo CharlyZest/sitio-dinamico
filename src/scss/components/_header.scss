@@ -1,0 +1,68 @@
+.Header {
+    position: fixed;
+    z-index: 998;
+    top: 0;
+    padding: .5rem;
+    padding-top: var(--header-height);
+    margin-left: -100vw;
+    width: 50%;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: var(--second-color);
+    transition: margin-left .3s ease;
+
+    &.is-active { margin-left: 0; }
+
+    @include mq(m) {
+      margin-left: 0;
+      padding-top: 0;
+      padding: .5rem;
+      width: 100%;
+      height: auto;
+      display: grid;
+      grid-template-areas:
+        'logo title menu'
+        'logo title social';
+      grid-template-columns: var(--header-height) 1fr 2fr;
+      grid-template-rows: repeat(2, calc(var(--header-height) / 2));
+      grid-gap: 1vw;
+    }
+
+    @include mq(l) {
+      position: fixed;
+      padding: 1rem;
+      width: 30%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-btn {
+      position: fixed;
+      z-index: 999;
+      top: var(--logo-spacing);
+      right: var(--logo-spacing);
+      display: flex;
+      width: var(--logo-width);
+      height: var(--logo-height);
+      background-color: var(--second-color);
+
+      @include mq(m) { display: none; }
+
+      & {
+        &.hamburger:focus {
+          outline: 0;
+          border: 0;
+        }
+
+        .hamburger {
+          &-inner,
+          &-inner:after,
+          &-inner:before {
+            background-color: var(--link-color);
+            width: 100%;
+          }
+        }
+      }
+    }
+  }

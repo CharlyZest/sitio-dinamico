@@ -1,0 +1,9 @@
+.Footer {
+    text-align: center;
+    color: var(--alternate-color);
+    background-color: var(--second-modal-color);
+
+    @include mq(m) { display: none; }
+
+    @include mq(l) { display: initial; }
+  }

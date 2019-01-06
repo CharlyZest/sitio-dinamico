@@ -1,0 +1,10 @@
+.SocialMedia {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 4vw;
+
+    @include mq(m) {
+      grid-area: social;
+      font-size: 1.5rem;
+    }
+  }

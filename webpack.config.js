@@ -25,7 +25,7 @@ module.exports = {
       },
       {
         test: /\.tpl.html$/,
-        use: 'es6-string-html-template'
+        use: 'es6-template-string'
       },
       {
         test: /\.html$/,

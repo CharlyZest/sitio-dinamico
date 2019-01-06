@@ -1,0 +1,27 @@
+.Title {
+    margin: 2rem 0;
+    font-size: 4vw;
+    color: var(--main-color);
+
+    @include mq(m) {
+      grid-area: title;
+      align-self: center;
+      margin: 0;
+      font-size: 1.5vw;
+      text-align: center;
+    }
+
+    @include mq(l) {
+      margin: 2rem 0;
+      text-align: initial;
+      flex-grow: 1;
+    }
+
+    * {
+      margin-bottom: .5rem;
+      @include mq(m) { margin-bottom: 0; }
+      @include mq(l) { margin-bottom: .5rem; }
+    }
+
+    small { text-transform: uppercase; }
+  }

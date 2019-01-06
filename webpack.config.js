@@ -1,6 +1,7 @@
 const HtmlWebPackPugin = require('html-webpack-plugin'),
-  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-  CleanWebpackPlugin = require('clean-webpack-plugin')
+    MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    autoprefixer = require('autoprefixer')
 
 module.exports = {
   entry: {
@@ -36,24 +37,38 @@ module.exports = {
         ]
       },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-                {
-                    loader: 'style-loader'
-                },
-                {
-                    loader: 'css-loader'
-                },
-                {
-                    loader: 'sass-loader',
-                    options: {
-                        sourceMap: true
-                    }
-                },
-                {
-                    loader: 'resolve-url-loader'
-                },
-                //MiniCssExtractPlugin.loader
+            {
+                loader: 'style-loader'
+            },
+            {
+                loader: 'css-loader',
+                options: {
+                    importLoaders: 3,
+                    //minimize: true,
+                    sourceMap: true
+                }
+            },
+            {
+                loader: 'postcss-loader',
+                options: {
+                    autoprefixer: {
+                        browser: ['last 2 versions']
+                    },
+                    sourceMap: true,
+                    plugins: () => [autoprefixer]
+                }
+            },
+            {
+                loader: 'resolve-url-loader'
+            },
+            {
+                loader: 'sass-loader',
+                options: {
+                    sourceMap: true
+                }
+            }
         ]
       },
       {
@@ -70,11 +85,11 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist/**/*.*']),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
+    new CleanWebpackPlugin(['dist/**/*.*']),
     new HtmlWebPackPugin({
       template: './src/template.html',
       filename: './index.html',

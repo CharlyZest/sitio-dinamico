@@ -42,11 +42,11 @@ module.exports = {
             {
                 loader: 'style-loader'
             },
+            MiniCssExtractPlugin.loader,
             {
                 loader: 'css-loader',
                 options: {
-                    importLoaders: 3,
-                    //minimize: true,
+                    // importLoaders: 3, // Cantidad de loaders usados|Deprecated
                     sourceMap: true
                 }
             },

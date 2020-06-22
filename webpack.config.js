@@ -1,6 +1,6 @@
 const HtmlWebPackPugin = require('html-webpack-plugin'),
     MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-    CleanWebpackPlugin = require('clean-webpack-plugin'),
+    { CleanWebpackPlugin } = require('clean-webpack-plugin'),
     autoprefixer = require('autoprefixer')
 
 module.exports = {
@@ -10,7 +10,7 @@ module.exports = {
   output: {
     filename: '[name].[chunkhash].js'
   },
-  devtool: 'inline-source-map',
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
@@ -89,7 +89,10 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css'
     }),
-    new CleanWebpackPlugin(['dist/**/*.*']),
+    new CleanWebpackPlugin({
+        dry: true,
+        verbose: true
+    }),
     new HtmlWebPackPugin({
       template: './src/template.html',
       filename: './index.html',
